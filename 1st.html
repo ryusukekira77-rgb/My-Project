@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="1st.css">
+</head>
+
+<body>
+    <div id="menu">
+        <h1 id="logo">AnimeToon</h1>
+
+        <div id="search-bar">
+            <input type="text" id="inputSearch" placeholder="Search movies,anime..">
+            <button id="btnSearch" placeholder="Search movies,anime,series..." onclick="movieSearch()">Search</button>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="movies.html">Movies</a></li>
+                <li><a href="anime.html">Anime</a></li>
+                <li><a href="shows.html">Shows</a></li>
+                <li><a href="series.html">Series</a></li>
+                <li><a href="cartoon.html">Cartoon</a></li>
+            </ul>
+        </nav>
+    </div>
+
+
+    <div id="container">
+
+    </div>
+    
+    <div class="slider-dots">
+        <input name="movie-poster" id="i" type="radio" onclick="one()">
+        <input name="movie-poster" id="ii" type="radio" onclick="two()">
+        <input name="movie-poster" id="iii" type="radio" onclick="three()">
+        <input name="movie-poster" id="iv" type="radio" onclick="four()">
+        <input name="movie-poster" id="v" type="radio" onclick="five()">
+        <input name="movie-poster" id="vi" type="radio" onclick="six()">
+    </div>
+
+    <div id="small-container">
+
+    </div>
+
+    <script>
+        one()
+        function one() {
+            document.getElementById("container").style.backgroundImage = "url('Images/Eren.jpg')"
+            document.getElementById("i").checked = true
+            setTimeout(two, 3000)
+        }
+        function two() {
+            document.getElementById("container").style.backgroundImage = "url(Images/Naruto.jpg)"
+            document.getElementById("ii").checked = true
+            setTimeout(three, 3000)
+        }
+        function three() {
+            document.getElementById("container").style.backgroundImage = "url(Images/Kaiju.jpg)"
+            document.getElementById("iii").checked = true
+            setTimeout(four, 3000)
+        }
+        function four() {
+            document.getElementById("container").style.backgroundImage = "url('Images/Eren.jpg')"
+            document.getElementById("iv").checked = true
+            setTimeout(five, 3000)
+        }
+        function five() {
+            document.getElementById("container").style.backgroundImage = "url(Images/Demon.jpg)"
+            document.getElementById("v").checked = true
+            setTimeout(six, 3000)
+        }
+
+        function six() {
+            document.getElementById("container").style.backgroundImage = "url(Images/bluelock.jpg)"
+            document.getElementById("vi").checked = true
+            setTimeout(one, 3000)
+        }
+
+
+        var arr = [{
+            Name: "Blue lock season 2",
+            Rating: "4.5",
+            path: "Images/blue lock season 2.jpg",
+        },
+        {
+            Name: "Demon slayer indinity castel arc",
+            Rating: "4.0",
+            path: "Images/Demon slayer infnity castel arc.jpg",
+
+        },
+        {
+            Name: "Mind all",
+            Rating: "4.9",
+            path: "Images/mind all.jpg",
+        },
+        {
+            Name: "Record of rangnork",
+            Rating: "4.7",
+            path: "Images/record of rangnork.jpg",
+        },
+        {
+            Name: "Rise of the demon",
+            Rating: "4.5",
+            path: "Images/rise demon.jpg",
+        },
+         {
+            Name: "Avtar",
+            Rating: "4.0",
+            path: "Images/Avtar.jpg",
+        },
+         {
+            Name: "Ben 10 ultimate",
+            Rating: "4.7",
+            path: "Images/BEN 10  ultimate.jpg",
+        },
+        {
+            Name: "Ben 10 alien force",
+            Rating: "4.6",
+            path: "Images/ben 10 alien force_.jpg",
+        },
+        {
+            Name: "Black clover season 2",
+            Rating: "4.2",
+            path: "Images/Black clover season 2.jpg",
+        },
+        {
+            Name: "Black clover season 1",
+            Rating: "4.1",
+            path: "Images/Black clover season1.jpg",
+        },
+        {
+            Name: "Blue lock episoad nagi",
+            Rating: "4.1",
+            path: "Images/Blue lock episoad nagi.jpg",
+        },
+        {
+            Name: "Doraemon castel of the undersea devil",
+            Rating: "4.2",
+            path: "Images/Doraemon castel of the undresea devil.jpg",
+        },
+        {
+            Name: "Dr Stone Science Future Part 3",
+            Rating: "4.5",
+            path: "Images/Dr_ Stone_ Science Future Part 3.jpg",
+        },
+        {
+            Name: "Dr Stone Science Future Part 2",
+            Rating: "4.4",
+            path: "Images/Dr. stone science future part 2.jpg",
+        },
+        {
+            Name: "One punch man",
+            Rating: "4.0",
+            path: "Images/One punch man.jpg",
+        },
+        {
+            Name: "All wishes come true",
+            Rating: "3.7",
+            path: "Images/All wishes come true .jpg",
+        },
+        {
+            Name: "Pokemon season 1",
+            Rating: "3.7",
+            path: "Images/Pokemon season 1.jpg",
+        },
+         {
+            Name: "Pokemon movie",
+            Rating: "3.7",
+            path: "Images/Pokeon x y movie.jpg",
+        },
+        {
+            Name: "Solo leveling season 2",
+            Rating: "3.7",
+            path: "Images/Solo Leveling Anime.jpg",
+        },
+         {
+            Name: "Vinland saga season 1",
+            Rating: "4.7",
+            path: "Images/Vinland saeson 1.jpg",
+        },
+        {
+            Name: "Vinland saga season 2",
+            Rating: "4.7",
+            path: "Images/Vinland Saga.jpg",
+        },
+        {
+            Name: "Wind breaker season 1",
+            Rating: "4.7",
+            path: "Images/Wind breaker season 1.jpg",
+        },
+        ]
+
+
+        function movieSearch() {
+            let inputText = document.getElementById("inputSearch").value
+            let lowerText = inputText.toLowerCase()
+
+            let filterrArr = arr.filter(function (obj) {
+                var movieList = obj.Name.toLocaleLowerCase()
+                return movieList.includes(lowerText)
+            })
+
+            var container = document.getElementById("small-container")
+            container.innerHTML = ""
+
+            filterrArr.forEach(function (obj) {
+                var box = document.createElement("div")
+                box.className = "movie-card"
+                var image = document.createElement("img")
+                image.className = "movie-img"
+                image.src = obj.path
+
+                var movieInfo = document.createElement("div")
+                movieInfo.className = "movie-info"
+                var h3 = document.createElement("h3")
+                h3.innerHTML = obj.Name
+                var headspan = document.createElement("span")
+                headspan.innerHTML = obj.Rating
+
+                var btn = document.createElement("button")
+                btn.className = "btn-play"
+                btn.innerHTML = "Play Now"
+
+                box.append(image, movieInfo)
+                movieInfo.append(h3, headspan, btn)
+                document.getElementById("small-container").append(box)
+
+
+
+            })
+
+        }
+
+
+
+
+
+        arr.forEach(function (obj) {
+            var box = document.createElement("div")
+            box.className = "movie-card"
+            var image = document.createElement("img")
+            image.className = "movie-img"
+            image.src = obj.path
+
+            var movieInfo = document.createElement("div")
+            movieInfo.className = "movie-info"
+            var h3 = document.createElement("h3")
+            h3.innerHTML = obj.Name
+            var headspan = document.createElement("span")
+            headspan.innerHTML = obj.Rating
+
+            var btn = document.createElement("button")
+            btn.className = "btn-play"
+            btn.innerHTML = "Play Now"
+
+            box.append(image, movieInfo)
+            movieInfo.append(h3, headspan, btn)
+            document.getElementById("small-container").append(box)
+
+
+        })
+    </script>
+
+
+</body>
+
+</html>

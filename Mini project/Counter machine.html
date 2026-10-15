@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         body{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            background-color:#f3f4f6;
+
+         }
+         #container{
+           display: flex;
+           flex-direction: column;
+           text-align: center;
+           justify-content: center;
+          border-radius: 16px;
+           padding:30px 25px;
+           gap:12px;
+           background-color: #ffffff;
+           box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+           width:90%;
+           max-width: 350px;
+         }
+         #head{
+            margin:0 0 10px 0;
+            font-size: 1.8rem;
+            color:#333
+         }
+         button{
+            width:100%;
+            padding:12px;
+            font-size: 1rem;
+            font-weight:600;
+            border:none;
+            border-radius: 8px;
+            cursor:pointer;
+            transition: background 0.2s,transform 0.1s ;
+         }
+         button:hover{
+            opacity: 0.9;
+            transform: translateY(-1px);
+         }
+         button:active{
+            transform: scale(0.98);
+             transform: translateY(-1px);
+
+            color:white;
+         }
+         #plus{
+            background-color: #28a745;
+            color:white;
+         }
+         #plus:hover{
+            background-color: #218838;
+         }
+         #minus{
+            background-color: #dc3545;
+            color:white;
+         }
+         #minus:hover{
+            background-color: #c82333;
+         }
+         #reset{
+            background-color: #6c757d;
+           
+            color:white;
+         }
+         #result{
+            margin:15px 0;
+            font-size:3.5rem;
+            font-weight:bold;
+            color:3333333;
+            line-height: 1;
+         }
+         #reset:hover{
+            background-color: #5a6268;
+         }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1 id="head">Counter Machine</h1>
+        <button id="plus">+1</button>
+        <h3 id="result">0</h3>
+        <button id="minus">-1</button>
+        <button id="reset">Reset</button>
+    </div>
+
+    <script>
+        let increment = document.querySelector("#plus")
+        let decrement = document.querySelector("#minus")
+        let reset = document.querySelector("#reset")
+        let result = document.querySelector("#result")
+
+        let counter = 0
+
+        function updateColor() {
+            if (counter < 0) {
+                result.style.color = "red"
+            }
+            else if (counter > 0) {
+                result.style.color = "green"
+            }
+            else {
+                result.style.color = "black"
+            }
+        }
+
+        increment.addEventListener("click", function () {
+            counter = counter + 1
+            result.innerHTML = counter
+            updateColor()
+        })
+
+        decrement.addEventListener("click", function () {
+            counter = counter - 1
+            result.innerHTML = counter
+            updateColor()
+
+        })
+        reset.addEventListener("click", function () {
+
+            counter = 0
+            result.innerHTML = counter
+            updateColor()
+
+        })
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

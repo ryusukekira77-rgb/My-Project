@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: #f3f4f6;
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            min-height: 100vh;
+            
+        }
+
+        #container {
+            width: 100%;
+            border: 2px solid black;
+            max-width: 350px;
+            display: flex;
+            flex-direction: column;
+            padding-top: 0px;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: none;
+            gap:20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-top: 0px;
+            color:red;
+            text-decoration:underline;
+           
+        }
+
+        #author {
+            width: 80%;
+            margin-top: 0px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid black;
+            background-color: lightgray;
+            font-size: 2.0rem;
+            background-color:lightsalmon;
+            padding:10px;
+            border-radius:5px;
+            border:none;
+            
+        }
+
+        #box {
+            width: 80%;
+          
+            border: 1px solid black;
+            background-color: lightgray;
+            font-size: 1.5rem;
+           margin-top: -30px;
+           padding:10px;
+           border-radius:5px;
+           border:none;
+        }
+        button{
+            width:80%;
+            font-size: 1.3rem;
+            background-color: lightgreen;
+            border-radius: 4px;;
+            cursor:pointer;
+            padding:5px;
+            margin-bottom: 20px;
+            border:none;
+    
+        }
+        button:hover{
+            background-color: rgb(114, 230, 114);
+           
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Quote Generator</h1>
+        <p id="author"></p>
+        <div id="box"> </div>
+        <button id="btn-quote">Quote</button>
+    </div>
+    <script>
+        let display = document.querySelector("#box")
+        let buttonquote = document.querySelector("#btn-quote")
+        let author = document.querySelector("#author")
+
+        let arr = [
+            {
+                text: "कठिन परिश्रम का कोई विकल्प नहीं है।",
+                author: "थॉमस एडिसन"
+            },
+            {
+                text: "सफलता का कोई मंत्र नहीं है, यह सिर्फ कड़ी मेहनत का फल है।",
+                author: "कॉलिन पावेल"
+            },
+            {
+                text: "विश्वास वह शक्ति है जिससे उजड़ी हुई दुनिया में प्रकाश लाया जा सकता है।",
+                author: "हेलेन केलर"
+            },
+            {
+                text: "जैसा तुम सोचते हो, वैसे ही बन जाओगे।",
+                author: "स्वामी विवेकानंद",
+
+            }];
+
+        buttonquote.addEventListener("click", function () {
+
+            let randomIndex = Math.floor(Math.random() * arr.length)
+            let randomQuote = arr[randomIndex]
+
+            display.innerHTML = randomQuote.text
+            author.innerHTML = `${randomQuote.author}`
+
+        })
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
